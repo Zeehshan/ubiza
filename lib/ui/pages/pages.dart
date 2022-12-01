@@ -1,0 +1,14 @@
+export 'splash/splash_page.dart';
+export 'sign_in/sign_in_page.dart';
+export 'home/home_page.dart';
+export 'sign_up/sign_up_page.dart';
+export 'verification/verification_page.dart';
+export 'legal/legal_page.dart';
+export 'country/country_page.dart';
+export 'college/college_page.dart';
+export 'personal_info/personal_info_page.dart';
+export 'upload_selfie/upload_selfie_page.dart';
+export 'upload_document_id/upload_document_id_page.dart';
+export 'upload_college_id/upload_college_id_page.dart';
+export 'welcome/welcome_page.dart';
+export 'record_success/record_success_page.dart';
