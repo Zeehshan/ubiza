@@ -36,8 +36,8 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       leading: (backButtonCallback != null)
           ? Center(
               child: Container(
-                width: 52,
-                height: 52,
+                width: 45,
+                height: 45,
                 decoration: BoxDecoration(
                     color: Theme.of(context).backgroundColor,
                     borderRadius: BorderRadius.circular(100)),

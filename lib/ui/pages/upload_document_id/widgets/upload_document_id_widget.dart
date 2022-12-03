@@ -10,8 +10,12 @@ class UploadDocumentIdWidget extends GetView<UpdateProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationController authenticationController = Get.find();
     return Obx((() => UploadDocumentWidget(
-          path: controller.documentId.value,
+          isHttp:
+              authenticationController.user.value.documentId?.document != null,
+          path: authenticationController.user.value.documentId?.document ??
+              controller.documentId.value,
           onChangedOption: (DocumentOptionType? type) {
             if (type != null) {
               controller.changedDocumentId(type: type);

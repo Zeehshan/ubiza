@@ -13,4 +13,5 @@ class AssetsRoutes {
   static const splashLogo = 'assets/images/splash_logo.png';
   static const logo = 'assets/images/logo.png';
   static const dottedBorder = 'assets/images/dotted_border.png';
+  static const uploadImage = 'assets/icons/upload.svg';
 }

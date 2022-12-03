@@ -10,8 +10,11 @@ class SelfieWidget extends GetView<UpdateProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationController authenticationController = Get.find();
     return Obx((() => UploadDocumentWidget(
-          path: controller.selfie.value,
+          isHttp: authenticationController.user.value.selfie?.document != null,
+          path: authenticationController.user.value.selfie?.document ??
+              controller.selfie.value,
           onChangedOption: (DocumentOptionType? type) {
             if (type != null) {
               controller.changedSelfie(type: type);

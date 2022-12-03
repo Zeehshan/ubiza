@@ -11,7 +11,7 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBarWidget(
         title: Container(),
-        backButtonCallback: () => Navigator.pop(context),
+        // backButtonCallback: () => Navigator.pop(context),
       ),
       body: const BodyWidget(),
     );

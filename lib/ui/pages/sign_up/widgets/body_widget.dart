@@ -80,7 +80,7 @@ class BodyWidget extends StatelessWidget {
                     TextSpan(
                       text: 'app.SignIn.title'.tr,
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => Get.toNamed(AppRoutes.signUp),
+                        ..onTap = () => Get.offAllNamed(AppRoutes.singIn),
                       style: Theme.of(context).textTheme.headline5!.copyWith(
                           color: Theme.of(context).primaryColor, fontSize: 14),
                     )

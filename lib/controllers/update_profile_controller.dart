@@ -11,10 +11,12 @@ import 'authentication_controller.dart';
 class UpdateProfileController extends GetxController {
   final ApiRepository _apiRepository = Get.find();
   final GalleryRepository _galleryRepository = Get.find();
-  List<CountryModel> countries = [];
-  List<CollegeModel> colleges = [];
-  CollegeModel? selectyedCollege;
-  CountryModel? selectedCountry;
+  RxList<CountryModel> countries = <CountryModel>[].obs;
+  RxList<CollegeModel> colleges = <CollegeModel>[].obs;
+  // ignore: unnecessary_cast
+  Rx<CollegeModel?> selectyedCollege = (null as CollegeModel?).obs;
+  // ignore: unnecessary_cast
+  Rx<CountryModel?> selectedCountry = (null as CountryModel?).obs;
   RxBool countryConfirmed = false.obs;
   RxBool collegeConfirmed = false.obs;
   TextInput fName = const TextInput.pure();
@@ -29,6 +31,7 @@ class UpdateProfileController extends GetxController {
   RxBool selfieUploading = false.obs;
   RxBool documentIdUploading = false.obs;
   RxBool collegeIdUploading = false.obs;
+  RxString searchCollegeQuery = ''.obs;
   updateTermsCondiction() async {
     try {
       _apiRepository.updatePrfile(termsAndCondition: true);
@@ -39,32 +42,33 @@ class UpdateProfileController extends GetxController {
 
   loadCountries() async {
     try {
-      countries = await _apiRepository.countries();
-      update();
+      countries.value = await _apiRepository.countries();
     } catch (e) {}
   }
 
-  loadingColleges() async {
+  loadingColleges({required String countryCode}) async {
     try {
-      colleges = await _apiRepository.colleges();
-      update();
+      colleges.value = await _apiRepository.colleges(countryCode: countryCode);
     } catch (e) {}
   }
 
   countryChanged(CountryModel country) {
-    selectedCountry = country;
-    update();
+    selectedCountry.value = country;
   }
 
   collegeChanged(CollegeModel college) {
-    selectyedCollege = college;
-    update();
+    selectyedCollege.value = college;
+  }
+
+  collegesFilterd(String query) {
+    searchCollegeQuery.value = query;
   }
 
   updateCountry(AuthenticationController authenticationController) async {
     try {
       countryConfirmed.value = true;
-      await _apiRepository.updatePrfile(countryCode: selectedCountry!.code);
+      await _apiRepository.updatePrfile(
+          countryCode: selectedCountry.value!.code);
       countryConfirmed.value = false;
       authenticationController.handleAuthenticationChanged(true);
     } catch (e) {
@@ -78,8 +82,8 @@ class UpdateProfileController extends GetxController {
     try {
       collegeConfirmed.value = true;
       await _apiRepository.updatePrfile(
-          collegeCode: selectyedCollege!.code,
-          collegeLogo: selectyedCollege!.logo);
+          collegeCode: selectyedCollege.value!.code,
+          collegeLogo: selectyedCollege.value!.logo);
       collegeConfirmed.value = false;
       authenticationController.handleAuthenticationChanged(true);
     } catch (e) {
@@ -91,23 +95,27 @@ class UpdateProfileController extends GetxController {
 
   //// form section personal information
   fNameChanged(String value) {
-    fName = TextInput.dirty(value);
-    formStatus.value = Formz.validate([fName, lName, dob.value, gender.value]);
+    final _fName = TextInput.dirty(value);
+    fName = _fName;
+    formStatus.value = Formz.validate([_fName, lName, dob.value, gender.value]);
   }
 
   lNameChanged(String value) {
-    lName = TextInput.dirty(value);
-    formStatus.value = Formz.validate([fName, lName, dob.value, gender.value]);
+    final _lName = TextInput.dirty(value);
+    lName = _lName;
+    formStatus.value = Formz.validate([fName, _lName, dob.value, gender.value]);
   }
 
   dobChanged(String value) {
-    dob.value = TextInput.dirty(value);
-    formStatus.value = Formz.validate([fName, lName, dob.value, gender.value]);
+    final _dob = TextInput.dirty(value);
+    dob.value = _dob;
+    formStatus.value = Formz.validate([fName, lName, _dob, gender.value]);
   }
 
   genderChanged(String value) {
-    gender.value = TextInput.dirty(value);
-    formStatus.value = Formz.validate([fName, lName, dob.value, gender.value]);
+    final _gender = TextInput.dirty(value);
+    gender.value = _gender;
+    formStatus.value = Formz.validate([fName, lName, dob.value, _gender]);
   }
 
   submittedForm(AuthenticationController authenticationController) async {

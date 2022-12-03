@@ -98,9 +98,9 @@ class ApiRepository {
     }
   }
 
-  Future<List<CollegeModel>> colleges() async {
+  Future<List<CollegeModel>> colleges({required String countryCode}) async {
     try {
-      return await _apiProvider.colleges();
+      return await _apiProvider.colleges(countryCode: countryCode);
     } catch (e) {
       rethrow;
     }

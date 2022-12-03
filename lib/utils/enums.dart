@@ -6,6 +6,8 @@ enum Gender {
   male,
   @JsonValue(1)
   female,
+  @JsonValue(2)
+  other,
   @JsonKey.nullForUndefinedEnumValue
   unknown
 }

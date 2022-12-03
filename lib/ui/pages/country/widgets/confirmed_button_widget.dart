@@ -12,21 +12,24 @@ class ConfirmedButtonWidget extends GetView<UpdateProfileController> {
   Widget build(BuildContext context) {
     final AuthenticationController authenticationController = Get.find();
     final user = authenticationController.user.value;
-    return Obx((() => ElevatedButtonWidget(
-          width: double.infinity,
-          showGradient: true,
-          hight: 56,
-          showProgressIndicator: controller.countryConfirmed.value,
-          onPressed: () {
-            if (controller.selectedCountry?.code == user.country) {
-              authenticationController.refreshedUser();
-              controller.loadingColleges();
-              Get.toNamed(AppRoutes.college);
-            } else {
-              controller.updateCountry(authenticationController);
-            }
-          },
-          child: Text('app.button.confirm'.tr),
-        )));
+    return Obx((() => controller.selectedCountry.value == null
+        ? Container()
+        : ElevatedButtonWidget(
+            width: double.infinity,
+            showGradient: true,
+            hight: 56,
+            showProgressIndicator: controller.countryConfirmed.value,
+            onPressed: () {
+              if (controller.selectedCountry.value?.code == user.country) {
+                authenticationController.refreshedUser();
+                controller.loadingColleges(
+                    countryCode: controller.selectedCountry.value!.code);
+                Get.toNamed(AppRoutes.college);
+              } else {
+                controller.updateCountry(authenticationController);
+              }
+            },
+            child: Text('app.button.confirm'.tr),
+          )));
   }
 }

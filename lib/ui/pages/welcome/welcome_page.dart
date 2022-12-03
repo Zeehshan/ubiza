@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
                 borderRadius: 100,
                 showGradient: true,
                 child: SvgPicture.asset(AssetsRoutes.nextArrow),
-                onPressed: () => Get.toNamed(AppRoutes.singIn),
+                onPressed: () => Get.offAllNamed(AppRoutes.singIn),
               ),
               SizedBox(
                 height: CustomSizeHelper.bottomHeight(context),

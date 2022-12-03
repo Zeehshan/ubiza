@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../configs/routes/app_pages.dart';
 import '../../../../controllers/controllers.dart';
 import '../../../widgets/widgtes.dart';
 
@@ -14,8 +15,15 @@ class ContinueButtonWidget extends GetView<UpdateProfileController> {
           showProgressIndicator: controller.selfieUploading.value,
           hight: 56,
           showGradient: true,
-          onPressed: controller.selfie.value.isNotEmpty
-              ? () => controller.updatedSelfie(authenticationController)
+          onPressed: controller.selfie.value.isNotEmpty ||
+                  authenticationController.user.value.selfie?.document != null
+              ? () {
+                  if (controller.selfie.value.isNotEmpty) {
+                    controller.updatedSelfie(authenticationController);
+                  } else {
+                    Get.offAllNamed(AppRoutes.uploadDocumentId);
+                  }
+                }
               : null,
           child: Text(
             'app.button.continue'.tr,

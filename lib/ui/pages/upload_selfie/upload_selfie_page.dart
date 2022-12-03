@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../configs/routes/app_pages.dart';
+import '../../../controllers/controllers.dart';
 import '../../widgets/widgtes.dart';
 import 'widgets/widgets.dart';
 
-class UploadSelfiePage extends StatelessWidget {
+class UploadSelfiePage extends GetView<UpdateProfileController> {
   const UploadSelfiePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final AuthenticationController authenticationController = Get.find();
     return Scaffold(
       appBar: AppBarWidget(
         title: Container(),
-        backButtonCallback: null,
+        backButtonCallback: () {
+          Get.offAllNamed(AppRoutes.personalInfo);
+          controller.dobChanged(authenticationController.user.value.dob);
+          controller
+              .genderChanged(authenticationController.user.value.gender.name);
+        },
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 30),

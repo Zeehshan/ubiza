@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../configs/routes/assets_routes.dart';
@@ -45,7 +47,7 @@ class RecordSuccessPage extends StatelessWidget {
                 borderRadius: 100,
                 showGradient: true,
                 child: SvgPicture.asset(AssetsRoutes.nextArrow),
-                onPressed: () {},
+                onPressed: () => exit(0),
               ),
               SizedBox(
                 height: CustomSizeHelper.bottomHeight(context),

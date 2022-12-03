@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../configs/routes/app_pages.dart';
 import '../../widgets/widgtes.dart';
 import 'widgets/widgets.dart';
 
@@ -11,7 +12,9 @@ class UploadCollegeIdPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBarWidget(
         title: Container(),
-        backButtonCallback: null,
+        backButtonCallback: () {
+          Get.offAllNamed(AppRoutes.uploadDocumentId);
+        },
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 30),

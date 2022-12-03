@@ -10,9 +10,13 @@ import '../../utils/utils.dart';
 
 class UploadDocumentWidget extends StatelessWidget {
   final String? path;
+  final bool isHttp;
   final Function(DocumentOptionType? type) onChangedOption;
   const UploadDocumentWidget(
-      {super.key, this.path, required this.onChangedOption});
+      {super.key,
+      this.path,
+      required this.onChangedOption,
+      this.isHttp = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,50 +26,62 @@ class UploadDocumentWidget extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 333,
-      decoration: const BoxDecoration(
-          image: DecorationImage(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          image: const DecorationImage(
+              fit: BoxFit.fill,
               image: AssetImage(
-        AssetsRoutes.dottedBorder,
-      ))),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: 104,
-            height: 104,
-            decoration: BoxDecoration(
-                color: const Color(0xff4A4A4A),
-                borderRadius: BorderRadius.circular(100)),
-            child: IconButton(
-                splashColor: Colors.white.withOpacity(.5),
-                highlightColor: Colors.white.withOpacity(.5),
-                color: Colors.white.withOpacity(.5),
-                focusColor: Colors.white.withOpacity(.5),
-                hoverColor: Colors.white.withOpacity(.5),
-                disabledColor: Colors.white.withOpacity(.5),
-                onPressed: () async {
-                  final type = await _changeImage(context);
-                  logger.d(type);
-                  onChangedOption(type);
-                },
-                icon: path != ''
-                    ? ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Image.file(File(path!)))
-                    : SvgPicture.asset(AssetsRoutes.uploadFile)),
+                AssetsRoutes.dottedBorder,
+              ))),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: TextButton(
+          onPressed: () async {
+            final type = await _changeImage(context);
+            logger.d(type);
+            onChangedOption(type);
+          },
+          style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30))),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              isHttp
+                  ? Image.network(path!)
+                  : path != ''
+                      ? Image.file(
+                          File(
+                            path!,
+                          ),
+                        )
+                      : Container(
+                          width: 104,
+                          height: 104,
+                          decoration: BoxDecoration(
+                              color: const Color(0xff4A4A4A),
+                              borderRadius: BorderRadius.circular(100)),
+                          child: Center(
+                              child: SvgPicture.asset(AssetsRoutes.uploadFile)),
+                        ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 60),
+                  child: Text(
+                      path != ''
+                          ? 'Change document'
+                          : 'app.button.uploadDocument'.tr,
+                      style: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                          foreground: Paint()..shader = linearGradient)),
+                ),
+              ),
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 60),
-              child: Text('app.button.uploadDocument'.tr,
-                  style: TextStyle(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold,
-                      foreground: Paint()..shader = linearGradient)),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

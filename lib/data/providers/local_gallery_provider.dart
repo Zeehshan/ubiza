@@ -12,24 +12,24 @@ class LocalGalleryProvider implements GalleryProvider {
         return null;
       }
       CroppedFile? croppedFile = await ImageCropper().cropImage(
-          sourcePath: pickedFile.path,
-          aspectRatio: const CropAspectRatio(
-            ratioX: 1.0,
-            ratioY: 1.0,
-          ),
-          compressQuality: 100,
-          maxWidth: 1000,
-          maxHeight: 1000,
-          uiSettings: [
-            AndroidUiSettings(
+        sourcePath: pickedFile.path,
+        aspectRatio: const CropAspectRatio(
+          ratioX: 1.0,
+          ratioY: 1.0,
+        ),
+        compressQuality: 100,
+        maxWidth: 1000,
+        maxHeight: 1000,
+        uiSettings: [
+          AndroidUiSettings(
               toolbarTitle: 'Crop photo',
-              lockAspectRatio: true,
-              hideBottomControls: true,
-            ),
-            IOSUiSettings(
-              title: 'Crop photo',
-            )
-          ]);
+              // lockAspectRatio: f,
+              // hideBottomControls: true,
+              initAspectRatio: CropAspectRatioPreset.original,
+              lockAspectRatio: false),
+          IOSUiSettings(title: 'Crop photo', aspectRatioLockEnabled: true)
+        ],
+      );
       return croppedFile?.path;
     } catch (e) {
       rethrow;

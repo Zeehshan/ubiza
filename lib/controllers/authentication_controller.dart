@@ -33,6 +33,7 @@ class AuthenticationController extends GetxController {
       Get.offAllNamed(AppRoutes.welcome);
     } else {
       FirebaseAuth auth = FirebaseAuth.instance;
+      await auth.currentUser?.reload();
       if (auth.currentUser?.emailVerified == false) {
         Get.offAllNamed(AppRoutes.verification);
         SnackBarWidget().showWarning(message: 'app.warning.verify.email'.tr);
@@ -51,7 +52,8 @@ class AuthenticationController extends GetxController {
             updateProfileController.loadCountries();
           }
           if (updateProfileController.colleges.isEmpty) {
-            updateProfileController.loadingColleges();
+            updateProfileController.loadingColleges(
+                countryCode: user.value.country);
           }
           Get.offAllNamed(AppRoutes.college);
         } else if (user.value.dob.isEmpty) {
@@ -59,7 +61,8 @@ class AuthenticationController extends GetxController {
             updateProfileController.loadCountries();
           }
           if (updateProfileController.colleges.isEmpty) {
-            updateProfileController.loadingColleges();
+            updateProfileController.loadingColleges(
+                countryCode: user.value.country);
           }
           Get.offAllNamed(AppRoutes.personalInfo);
         } else if (user.value.selfie == null) {
@@ -89,7 +92,7 @@ class AuthenticationController extends GetxController {
   Future<bool> getAuthenticatedStatus() async {
     /// just for test TODO:
     // await _apiRepository.logout();
-
+    await Future.delayed(const Duration(seconds: 2));
     final _authenticatedUser = await _apiRepository.getAuthenticatedStatus();
     return _authenticatedUser;
   }

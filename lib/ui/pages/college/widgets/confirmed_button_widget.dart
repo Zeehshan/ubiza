@@ -11,20 +11,23 @@ class ConfirmedButtonWidget extends GetView<UpdateProfileController> {
   @override
   Widget build(BuildContext context) {
     final AuthenticationController authenticationController = Get.find();
-    final user = authenticationController.user.value;
-    return Obx((() => ElevatedButtonWidget(
-          width: double.infinity,
-          showGradient: true,
-          hight: 56,
-          showProgressIndicator: controller.collegeConfirmed.value,
-          onPressed: () {
-            if (controller.selectyedCollege?.code == user.college) {
-              Get.toNamed(AppRoutes.personalInfo);
-            } else {
-              controller.updateCollege(authenticationController);
-            }
-          },
-          child: Text('app.button.confirm'.tr),
-        )));
+    return Obx((() => controller.selectyedCollege.value == null
+        ? Container()
+        : ElevatedButtonWidget(
+            width: double.infinity,
+            showGradient: true,
+            hight: 56,
+            showProgressIndicator: controller.collegeConfirmed.value,
+            onPressed: () {
+              final user = authenticationController.user.value;
+
+              if (controller.selectyedCollege.value?.code == user.college) {
+                Get.toNamed(AppRoutes.personalInfo);
+              } else {
+                controller.updateCollege(authenticationController);
+              }
+            },
+            child: Text('app.button.confirm'.tr),
+          )));
   }
 }

@@ -8,6 +8,7 @@ class ElevatedButtonWidget extends StatelessWidget {
   final double? hight, width;
   final double? borderRadius;
   final Function()? onPressed;
+  final EdgeInsetsGeometry? margin;
   const ElevatedButtonWidget(
       {super.key,
       required this.child,
@@ -16,13 +17,15 @@ class ElevatedButtonWidget extends StatelessWidget {
       this.borderRadius,
       this.showProgressIndicator = false,
       this.showGradient = false,
-      required this.onPressed});
+      required this.onPressed,
+      this.margin});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: hight,
+      margin: margin,
       decoration: BoxDecoration(
           color: !showGradient ? Theme.of(context).backgroundColor : null,
           gradient: onPressed == null

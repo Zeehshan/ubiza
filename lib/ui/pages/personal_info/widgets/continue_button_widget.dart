@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 
 import '../../../../controllers/controllers.dart';
@@ -15,7 +14,10 @@ class ContinueButtonWidget extends GetView<UpdateProfileController> {
           showProgressIndicator: controller.formSubmittedPressed.value,
           hight: 56,
           showGradient: true,
-          onPressed: controller.formStatus.value == FormzStatus.valid
+          onPressed: (controller.fName.value.isEmpty &&
+                  controller.lName.value.isEmpty &&
+                  controller.dob.value.valid &&
+                  controller.gender.value.valid)
               ? () => controller.submittedForm(authenticationController)
               : null,
           child: Text(

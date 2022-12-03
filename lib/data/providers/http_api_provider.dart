@@ -124,6 +124,7 @@ class HttpApiProvider implements ApiProvider {
       FirebaseAuth auth = FirebaseAuth.instance;
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      FirebaseAuth.instance.currentUser?.sendEmailVerification();
       return true;
     } catch (e) {
       rethrow;
@@ -142,10 +143,12 @@ class HttpApiProvider implements ApiProvider {
   }
 
   @override
-  Future<List<CollegeModel>> colleges() async {
+  Future<List<CollegeModel>> colleges({required String countryCode}) async {
     try {
-      QuerySnapshot querySnapshot =
-          await FirebaseFirestore.instance.collection('colleges').get();
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('colleges')
+          .where('country_code', isEqualTo: countryCode)
+          .get();
       List<QueryDocumentSnapshot> docs = querySnapshot.docs;
       List<CollegeModel> list =
           docs.map((doc) => CollegeModel.fromJson(doc.data())).toList();
@@ -184,8 +187,12 @@ class HttpApiProvider implements ApiProvider {
   Future uploadCollegeId({required String collegeId}) async {
     try {
       final String? _uid = FirebaseAuth.instance.currentUser?.uid;
-      Reference ref =
-          FirebaseStorage.instance.ref().child('user_documents').child(_uid!);
+      Reference ref = FirebaseStorage.instance
+          .ref()
+          .child('user_documents')
+          .child(_uid!)
+          .child('college_id.png');
+      ;
       await ref.putFile(File(collegeId));
       final filePath = await ref.getDownloadURL();
       await _appUsers.doc(_uid).update({
@@ -204,8 +211,12 @@ class HttpApiProvider implements ApiProvider {
   Future uploadDocumentId({required String documentId}) async {
     try {
       final String? _uid = FirebaseAuth.instance.currentUser?.uid;
-      Reference ref =
-          FirebaseStorage.instance.ref().child('user_documents').child(_uid!);
+      Reference ref = FirebaseStorage.instance
+          .ref()
+          .child('user_documents')
+          .child(_uid!)
+          .child('document_id.png');
+      ;
       await ref.putFile(File(documentId));
       final filePath = await ref.getDownloadURL();
       await _appUsers.doc(_uid).update({
@@ -224,8 +235,11 @@ class HttpApiProvider implements ApiProvider {
   Future uploadSelfie({required String selfie}) async {
     try {
       final String? _uid = FirebaseAuth.instance.currentUser?.uid;
-      Reference ref =
-          FirebaseStorage.instance.ref().child('user_documents').child(_uid!);
+      Reference ref = FirebaseStorage.instance
+          .ref()
+          .child('user_documents')
+          .child(_uid!)
+          .child('selfie.png');
       await ref.putFile(File(selfie));
       final filePath = await ref.getDownloadURL();
       await _appUsers.doc(_uid).update({

@@ -11,7 +11,7 @@ abstract class ApiProvider {
   Future country({required String country});
   Future college({required String college});
   Future<List<CountryModel>> countries();
-  Future<List<CollegeModel>> colleges();
+  Future<List<CollegeModel>> colleges({required String countryCode});
   Future uploadSelfie({required String selfie});
   Future uploadDocumentId({required String documentId});
   Future uploadCollegeId({required String collegeId});
