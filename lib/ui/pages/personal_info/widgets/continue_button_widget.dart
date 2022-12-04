@@ -14,8 +14,8 @@ class ContinueButtonWidget extends GetView<UpdateProfileController> {
           showProgressIndicator: controller.formSubmittedPressed.value,
           hight: 56,
           showGradient: true,
-          onPressed: (controller.fName.value.isEmpty &&
-                  controller.lName.value.isEmpty &&
+          onPressed: (controller.fName.value.value.isNotEmpty &&
+                  controller.lName.value.value.isNotEmpty &&
                   controller.dob.value.valid &&
                   controller.gender.value.valid)
               ? () => controller.submittedForm(authenticationController)

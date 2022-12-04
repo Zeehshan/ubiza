@@ -1,5 +1,6 @@
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../configs/routes/app_pages.dart';
 import '../data/repositories/repositories.dart';
@@ -19,8 +20,8 @@ class UpdateProfileController extends GetxController {
   Rx<CountryModel?> selectedCountry = (null as CountryModel?).obs;
   RxBool countryConfirmed = false.obs;
   RxBool collegeConfirmed = false.obs;
-  TextInput fName = const TextInput.pure();
-  TextInput lName = const TextInput.pure();
+  Rx<TextInput> fName = const TextInput.pure().obs;
+  Rx<TextInput> lName = const TextInput.pure().obs;
   Rx<TextInput> dob = const TextInput.pure().obs;
   Rx<TextInput> gender = const TextInput.pure().obs;
   Rx<FormzStatus> formStatus = FormzStatus.pure.obs;
@@ -96,34 +97,38 @@ class UpdateProfileController extends GetxController {
   //// form section personal information
   fNameChanged(String value) {
     final _fName = TextInput.dirty(value);
-    fName = _fName;
-    formStatus.value = Formz.validate([_fName, lName, dob.value, gender.value]);
+    fName.value = _fName;
+    formStatus.value =
+        Formz.validate([_fName, lName.value, dob.value, gender.value]);
   }
 
   lNameChanged(String value) {
     final _lName = TextInput.dirty(value);
-    lName = _lName;
-    formStatus.value = Formz.validate([fName, _lName, dob.value, gender.value]);
+    lName.value = _lName;
+    formStatus.value =
+        Formz.validate([fName.value, _lName, dob.value, gender.value]);
   }
 
   dobChanged(String value) {
     final _dob = TextInput.dirty(value);
     dob.value = _dob;
-    formStatus.value = Formz.validate([fName, lName, _dob, gender.value]);
+    formStatus.value =
+        Formz.validate([fName.value, lName.value, _dob, gender.value]);
   }
 
   genderChanged(String value) {
     final _gender = TextInput.dirty(value);
     gender.value = _gender;
-    formStatus.value = Formz.validate([fName, lName, dob.value, _gender]);
+    formStatus.value =
+        Formz.validate([fName.value, lName.value, dob.value, _gender]);
   }
 
   submittedForm(AuthenticationController authenticationController) async {
     try {
       formSubmittedPressed.value = true;
       await _apiRepository.updatePrfile(
-          fName: fName.value,
-          lName: lName.value,
+          fName: fName.value.value,
+          lName: lName.value.value,
           dob: dob.value.value,
           geneder: _gendor(gender.value.value));
       formSubmittedPressed.value = false;

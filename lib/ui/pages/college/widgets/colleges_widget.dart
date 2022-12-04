@@ -165,57 +165,59 @@ class CollegesWidget extends GetView<UpdateProfileController> {
                               borderRadius: BorderRadius.circular(15)),
                           child: ListView(
                             padding: const EdgeInsets.symmetric(vertical: 20),
-                            children: controller.colleges
-                                .where((name) => name.name
-                                    .toLowerCase()
-                                    .contains(controller.searchCollegeQuery
-                                        .toLowerCase()))
-                                .map((college) => TextButton(
-                                      onPressed: () {
-                                        controller.collegeChanged(college);
-                                      },
-                                      style: TextButton.styleFrom(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 10, horizontal: 10),
+                            children: controller.colleges.map((college) {
+                              if (college.name.toLowerCase().contains(
+                                      controller.searchCollegeQuery.value) ||
+                                  college.code.toLowerCase().contains(
+                                      controller.searchCollegeQuery.value)) {
+                                return TextButton(
+                                  onPressed: () {
+                                    controller.collegeChanged(college);
+                                  },
+                                  style: TextButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10, horizontal: 10),
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      NetworkImageWidget(
+                                          isUser: false,
+                                          borderRadius: 100,
+                                          width: 55,
+                                          height: 55,
+                                          padding: 10,
+                                          imageUrl: college.logo),
+                                      const SizedBox(
+                                        width: 22,
                                       ),
-                                      child: Row(
-                                        children: [
-                                          NetworkImageWidget(
-                                              isUser: false,
-                                              borderRadius: 100,
-                                              width: 55,
-                                              height: 55,
-                                              padding: 10,
-                                              imageUrl: college.logo),
-                                          const SizedBox(
-                                            width: 22,
-                                          ),
-                                          Expanded(
-                                            child: Text.rich(TextSpan(
-                                                text: college.name,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .headline2!
-                                                    .copyWith(
-                                                        fontSize: 14,
-                                                        color: controller
-                                                                    .selectyedCollege
-                                                                    .value
-                                                                    ?.code ==
-                                                                college.code
-                                                            ? kPrimary
-                                                            : null),
-                                                children: [
-                                                  const TextSpan(text: ' '),
-                                                  TextSpan(
-                                                      text:
-                                                          '(${college.code.toUpperCase()})')
-                                                ])),
-                                          )
-                                        ],
-                                      ),
-                                    ))
-                                .toList(),
+                                      Expanded(
+                                        child: Text.rich(TextSpan(
+                                            text: college.name,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline2!
+                                                .copyWith(
+                                                    fontSize: 14,
+                                                    color: controller
+                                                                .selectyedCollege
+                                                                .value
+                                                                ?.code ==
+                                                            college.code
+                                                        ? kPrimary
+                                                        : null),
+                                            children: [
+                                              const TextSpan(text: ' '),
+                                              TextSpan(
+                                                  text:
+                                                      '(${college.code.toUpperCase()})')
+                                            ])),
+                                      )
+                                    ],
+                                  ),
+                                );
+                              }
+                              return Container();
+                            }).toList(),
                           ),
                         ),
                       )),
