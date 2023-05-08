@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,5 +17,9 @@ class CustomSizeHelper {
 
   static double marginHorizontal(BuildContext context) {
     return 25;
+  }
+
+  static double iconHeight(double size) {
+    return ScreenUtil().setHeight(size);
   }
 }

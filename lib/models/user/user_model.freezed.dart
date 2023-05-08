@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_model.dart';
 
@@ -14,26 +14,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UserModel _$UserModelFromJson(Map<String, dynamic> json) {
-  return _UserModel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$UserModel {
-  String get email => throw _privateConstructorUsedError;
-  String get fName => throw _privateConstructorUsedError;
-  String get lName => throw _privateConstructorUsedError;
-  String get dob => throw _privateConstructorUsedError;
-  String get college => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get collegeLogo => throw _privateConstructorUsedError;
-  Gender get gender => throw _privateConstructorUsedError;
-  DocumentModel? get documentId => throw _privateConstructorUsedError;
-  DocumentModel? get collegeId => throw _privateConstructorUsedError;
-  DocumentModel? get selfie => throw _privateConstructorUsedError;
-  bool get termsAndConditionsAccepted => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  bool? get active => throw _privateConstructorUsedError;
+  String? get appIdentifier => throw _privateConstructorUsedError;
+  String? get city => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  List<InterestModel> get interests => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  String? get profilePictureURL => throw _privateConstructorUsedError;
+  SettingModel? get settings => throw _privateConstructorUsedError;
+  String? get state => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -45,22 +41,21 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {String email,
-      String fName,
-      String lName,
-      String dob,
-      String college,
-      String country,
-      String collegeLogo,
-      Gender gender,
-      DocumentModel? documentId,
-      DocumentModel? collegeId,
-      DocumentModel? selfie,
-      bool termsAndConditionsAccepted});
+      {String id,
+      bool? active,
+      String? appIdentifier,
+      String? city,
+      String? country,
+      String? email,
+      String? firstName,
+      String? lastName,
+      List<InterestModel> interests,
+      String? phoneNumber,
+      String? profilePictureURL,
+      SettingModel? settings,
+      String? state});
 
-  $DocumentModelCopyWith<$Res>? get documentId;
-  $DocumentModelCopyWith<$Res>? get collegeId;
-  $DocumentModelCopyWith<$Res>? get selfie;
+  $SettingModelCopyWith<$Res>? get settings;
 }
 
 /// @nodoc
@@ -76,104 +71,85 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? fName = null,
-    Object? lName = null,
-    Object? dob = null,
-    Object? college = null,
-    Object? country = null,
-    Object? collegeLogo = null,
-    Object? gender = null,
-    Object? documentId = freezed,
-    Object? collegeId = freezed,
-    Object? selfie = freezed,
-    Object? termsAndConditionsAccepted = null,
+    Object? id = null,
+    Object? active = freezed,
+    Object? appIdentifier = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
+    Object? email = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? interests = null,
+    Object? phoneNumber = freezed,
+    Object? profilePictureURL = freezed,
+    Object? settings = freezed,
+    Object? state = freezed,
   }) {
     return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      fName: null == fName
-          ? _value.fName
-          : fName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lName: null == lName
-          ? _value.lName
-          : lName // ignore: cast_nullable_to_non_nullable
-              as String,
-      dob: null == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String,
-      college: null == college
-          ? _value.college
-          : college // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      appIdentifier: freezed == appIdentifier
+          ? _value.appIdentifier
+          : appIdentifier // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      collegeLogo: null == collegeLogo
-          ? _value.collegeLogo
-          : collegeLogo // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      documentId: freezed == documentId
-          ? _value.documentId
-          : documentId // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      collegeId: freezed == collegeId
-          ? _value.collegeId
-          : collegeId // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      selfie: freezed == selfie
-          ? _value.selfie
-          : selfie // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      termsAndConditionsAccepted: null == termsAndConditionsAccepted
-          ? _value.termsAndConditionsAccepted
-          : termsAndConditionsAccepted // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interests: null == interests
+          ? _value.interests
+          : interests // ignore: cast_nullable_to_non_nullable
+              as List<InterestModel>,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePictureURL: freezed == profilePictureURL
+          ? _value.profilePictureURL
+          : profilePictureURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      settings: freezed == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as SettingModel?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $DocumentModelCopyWith<$Res>? get documentId {
-    if (_value.documentId == null) {
+  $SettingModelCopyWith<$Res>? get settings {
+    if (_value.settings == null) {
       return null;
     }
 
-    return $DocumentModelCopyWith<$Res>(_value.documentId!, (value) {
-      return _then(_value.copyWith(documentId: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DocumentModelCopyWith<$Res>? get collegeId {
-    if (_value.collegeId == null) {
-      return null;
-    }
-
-    return $DocumentModelCopyWith<$Res>(_value.collegeId!, (value) {
-      return _then(_value.copyWith(collegeId: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $DocumentModelCopyWith<$Res>? get selfie {
-    if (_value.selfie == null) {
-      return null;
-    }
-
-    return $DocumentModelCopyWith<$Res>(_value.selfie!, (value) {
-      return _then(_value.copyWith(selfie: value) as $Val);
+    return $SettingModelCopyWith<$Res>(_value.settings!, (value) {
+      return _then(_value.copyWith(settings: value) as $Val);
     });
   }
 }
@@ -186,25 +162,22 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String email,
-      String fName,
-      String lName,
-      String dob,
-      String college,
-      String country,
-      String collegeLogo,
-      Gender gender,
-      DocumentModel? documentId,
-      DocumentModel? collegeId,
-      DocumentModel? selfie,
-      bool termsAndConditionsAccepted});
+      {String id,
+      bool? active,
+      String? appIdentifier,
+      String? city,
+      String? country,
+      String? email,
+      String? firstName,
+      String? lastName,
+      List<InterestModel> interests,
+      String? phoneNumber,
+      String? profilePictureURL,
+      SettingModel? settings,
+      String? state});
 
   @override
-  $DocumentModelCopyWith<$Res>? get documentId;
-  @override
-  $DocumentModelCopyWith<$Res>? get collegeId;
-  @override
-  $DocumentModelCopyWith<$Res>? get selfie;
+  $SettingModelCopyWith<$Res>? get settings;
 }
 
 /// @nodoc
@@ -218,129 +191,133 @@ class __$$_UserModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
-    Object? fName = null,
-    Object? lName = null,
-    Object? dob = null,
-    Object? college = null,
-    Object? country = null,
-    Object? collegeLogo = null,
-    Object? gender = null,
-    Object? documentId = freezed,
-    Object? collegeId = freezed,
-    Object? selfie = freezed,
-    Object? termsAndConditionsAccepted = null,
+    Object? id = null,
+    Object? active = freezed,
+    Object? appIdentifier = freezed,
+    Object? city = freezed,
+    Object? country = freezed,
+    Object? email = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? interests = null,
+    Object? phoneNumber = freezed,
+    Object? profilePictureURL = freezed,
+    Object? settings = freezed,
+    Object? state = freezed,
   }) {
     return _then(_$_UserModel(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      fName: null == fName
-          ? _value.fName
-          : fName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lName: null == lName
-          ? _value.lName
-          : lName // ignore: cast_nullable_to_non_nullable
-              as String,
-      dob: null == dob
-          ? _value.dob
-          : dob // ignore: cast_nullable_to_non_nullable
-              as String,
-      college: null == college
-          ? _value.college
-          : college // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      appIdentifier: freezed == appIdentifier
+          ? _value.appIdentifier
+          : appIdentifier // ignore: cast_nullable_to_non_nullable
+              as String?,
+      city: freezed == city
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      collegeLogo: null == collegeLogo
-          ? _value.collegeLogo
-          : collegeLogo // ignore: cast_nullable_to_non_nullable
-              as String,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      documentId: freezed == documentId
-          ? _value.documentId
-          : documentId // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      collegeId: freezed == collegeId
-          ? _value.collegeId
-          : collegeId // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      selfie: freezed == selfie
-          ? _value.selfie
-          : selfie // ignore: cast_nullable_to_non_nullable
-              as DocumentModel?,
-      termsAndConditionsAccepted: null == termsAndConditionsAccepted
-          ? _value.termsAndConditionsAccepted
-          : termsAndConditionsAccepted // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String?,
+      email: freezed == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: freezed == firstName
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: freezed == lastName
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interests: null == interests
+          ? _value._interests
+          : interests // ignore: cast_nullable_to_non_nullable
+              as List<InterestModel>,
+      phoneNumber: freezed == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilePictureURL: freezed == profilePictureURL
+          ? _value.profilePictureURL
+          : profilePictureURL // ignore: cast_nullable_to_non_nullable
+              as String?,
+      settings: freezed == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as SettingModel?,
+      state: freezed == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-@JsonSerializable(fieldRename: FieldRename.snake)
+@JsonSerializable()
 class _$_UserModel implements _UserModel {
   _$_UserModel(
-      {required this.email,
-      this.fName = '',
-      this.lName = '',
-      this.dob = '',
-      this.college = '',
-      this.country = '',
-      this.collegeLogo = '',
-      this.gender = Gender.unknown,
-      this.documentId,
-      this.collegeId,
-      this.selfie,
-      this.termsAndConditionsAccepted = false});
+      {required this.id,
+      required this.active,
+      required this.appIdentifier,
+      required this.city,
+      required this.country,
+      required this.email,
+      required this.firstName,
+      required this.lastName,
+      required final List<InterestModel> interests,
+      required this.phoneNumber,
+      required this.profilePictureURL,
+      required this.settings,
+      required this.state})
+      : _interests = interests;
 
-  factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserModelFromJson(json);
+  @override
+  final String id;
+  @override
+  final bool? active;
+  @override
+  final String? appIdentifier;
+  @override
+  final String? city;
+  @override
+  final String? country;
+  @override
+  final String? email;
+  @override
+  final String? firstName;
+  @override
+  final String? lastName;
+  final List<InterestModel> _interests;
+  @override
+  List<InterestModel> get interests {
+    if (_interests is EqualUnmodifiableListView) return _interests;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_interests);
+  }
 
   @override
-  final String email;
+  final String? phoneNumber;
   @override
-  @JsonKey()
-  final String fName;
+  final String? profilePictureURL;
   @override
-  @JsonKey()
-  final String lName;
+  final SettingModel? settings;
   @override
-  @JsonKey()
-  final String dob;
-  @override
-  @JsonKey()
-  final String college;
-  @override
-  @JsonKey()
-  final String country;
-  @override
-  @JsonKey()
-  final String collegeLogo;
-  @override
-  @JsonKey()
-  final Gender gender;
-  @override
-  final DocumentModel? documentId;
-  @override
-  final DocumentModel? collegeId;
-  @override
-  final DocumentModel? selfie;
-  @override
-  @JsonKey()
-  final bool termsAndConditionsAccepted;
+  final String? state;
 
   @override
   String toString() {
-    return 'UserModel(email: $email, fName: $fName, lName: $lName, dob: $dob, college: $college, country: $country, collegeLogo: $collegeLogo, gender: $gender, documentId: $documentId, collegeId: $collegeId, selfie: $selfie, termsAndConditionsAccepted: $termsAndConditionsAccepted)';
+    return 'UserModel(id: $id, active: $active, appIdentifier: $appIdentifier, city: $city, country: $country, email: $email, firstName: $firstName, lastName: $lastName, interests: $interests, phoneNumber: $phoneNumber, profilePictureURL: $profilePictureURL, settings: $settings, state: $state)';
   }
 
   @override
@@ -348,99 +325,94 @@ class _$_UserModel implements _UserModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserModel &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.fName, fName) || other.fName == fName) &&
-            (identical(other.lName, lName) || other.lName == lName) &&
-            (identical(other.dob, dob) || other.dob == dob) &&
-            (identical(other.college, college) || other.college == college) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.active, active) || other.active == active) &&
+            (identical(other.appIdentifier, appIdentifier) ||
+                other.appIdentifier == appIdentifier) &&
+            (identical(other.city, city) || other.city == city) &&
             (identical(other.country, country) || other.country == country) &&
-            (identical(other.collegeLogo, collegeLogo) ||
-                other.collegeLogo == collegeLogo) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.documentId, documentId) ||
-                other.documentId == documentId) &&
-            (identical(other.collegeId, collegeId) ||
-                other.collegeId == collegeId) &&
-            (identical(other.selfie, selfie) || other.selfie == selfie) &&
-            (identical(other.termsAndConditionsAccepted,
-                    termsAndConditionsAccepted) ||
-                other.termsAndConditionsAccepted ==
-                    termsAndConditionsAccepted));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            const DeepCollectionEquality()
+                .equals(other._interests, _interests) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.profilePictureURL, profilePictureURL) ||
+                other.profilePictureURL == profilePictureURL) &&
+            (identical(other.settings, settings) ||
+                other.settings == settings) &&
+            (identical(other.state, state) || other.state == state));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      email,
-      fName,
-      lName,
-      dob,
-      college,
+      id,
+      active,
+      appIdentifier,
+      city,
       country,
-      collegeLogo,
-      gender,
-      documentId,
-      collegeId,
-      selfie,
-      termsAndConditionsAccepted);
+      email,
+      firstName,
+      lastName,
+      const DeepCollectionEquality().hash(_interests),
+      phoneNumber,
+      profilePictureURL,
+      settings,
+      state);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
       __$$_UserModelCopyWithImpl<_$_UserModel>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_UserModelToJson(
-      this,
-    );
-  }
 }
 
 abstract class _UserModel implements UserModel {
   factory _UserModel(
-      {required final String email,
-      final String fName,
-      final String lName,
-      final String dob,
-      final String college,
-      final String country,
-      final String collegeLogo,
-      final Gender gender,
-      final DocumentModel? documentId,
-      final DocumentModel? collegeId,
-      final DocumentModel? selfie,
-      final bool termsAndConditionsAccepted}) = _$_UserModel;
-
-  factory _UserModel.fromJson(Map<String, dynamic> json) =
-      _$_UserModel.fromJson;
+      {required final String id,
+      required final bool? active,
+      required final String? appIdentifier,
+      required final String? city,
+      required final String? country,
+      required final String? email,
+      required final String? firstName,
+      required final String? lastName,
+      required final List<InterestModel> interests,
+      required final String? phoneNumber,
+      required final String? profilePictureURL,
+      required final SettingModel? settings,
+      required final String? state}) = _$_UserModel;
 
   @override
-  String get email;
+  String get id;
   @override
-  String get fName;
+  bool? get active;
   @override
-  String get lName;
+  String? get appIdentifier;
   @override
-  String get dob;
+  String? get city;
   @override
-  String get college;
+  String? get country;
   @override
-  String get country;
+  String? get email;
   @override
-  String get collegeLogo;
+  String? get firstName;
   @override
-  Gender get gender;
+  String? get lastName;
   @override
-  DocumentModel? get documentId;
+  List<InterestModel> get interests;
   @override
-  DocumentModel? get collegeId;
+  String? get phoneNumber;
   @override
-  DocumentModel? get selfie;
+  String? get profilePictureURL;
   @override
-  bool get termsAndConditionsAccepted;
+  SettingModel? get settings;
+  @override
+  String? get state;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

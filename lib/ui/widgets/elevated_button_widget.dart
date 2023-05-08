@@ -1,56 +1,57 @@
 import 'package:flutter/material.dart';
 
-import 'widgtes.dart';
+import '../../configs/themes/themes.dart';
+import 'widgets.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   final Widget child;
-  final bool showProgressIndicator, showGradient;
-  final double? hight, width;
-  final double? borderRadius;
+  final bool showProgressIndicator;
+  final double? height, width, borderWidth;
+  final double borderRadius;
   final Function()? onPressed;
-  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? margin, padding;
+  final Color? backgroundColor, borderSide;
+  final double loadingSize;
   const ElevatedButtonWidget(
       {super.key,
       required this.child,
       this.width,
-      this.hight,
-      this.borderRadius,
+      this.height,
+      this.borderWidth = 0.0,
+      this.borderRadius = 8.0,
       this.showProgressIndicator = false,
-      this.showGradient = false,
       required this.onPressed,
-      this.margin});
+      this.backgroundColor = ThemeConfig.primaryColor,
+      this.borderSide = Colors.transparent,
+      this.margin,
+      this.padding,
+      this.loadingSize = 30});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: hight,
+      width: width ?? double.infinity,
+      height: height ?? 52,
       margin: margin,
       decoration: BoxDecoration(
-          color: !showGradient ? Theme.of(context).backgroundColor : null,
-          gradient: onPressed == null
-              ? null
-              : !showGradient
-                  ? null
-                  : const LinearGradient(
-                      colors: [Color(0xff4B57FE), Color(0xffAE2EDA)]),
-          borderRadius: BorderRadius.circular(borderRadius ?? 15)),
+          color: onPressed == null ? null : backgroundColor,
+          borderRadius: BorderRadius.circular(borderRadius)),
       child: AbsorbPointer(
         absorbing: showProgressIndicator,
         child: ElevatedButton(
           onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-              elevation: 0,
-              shadowColor: Colors.transparent,
-              primary: Colors.transparent,
-              padding: EdgeInsets.zero,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(borderRadius ?? 15))),
           child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 400),
               transitionBuilder: (Widget child, Animation<double> animation) =>
                   ScaleTransition(scale: animation, child: child),
-              child: showProgressIndicator ? const LoadingWidget() : child),
+              child: showProgressIndicator
+                  ? LoadingWidget(
+                      size: loadingSize,
+                    )
+                  : Padding(
+                      padding: padding ?? EdgeInsets.zero,
+                      child: child,
+                    )),
         ),
       ),
     );

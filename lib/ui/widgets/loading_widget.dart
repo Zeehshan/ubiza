@@ -1,37 +1,26 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({
-    Key? key,
-    this.color = Colors.white,
-  }) : super(key: key);
+  final double size;
 
-  final Color color;
+  const LoadingWidget({Key? key, this.size = 36.0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return Center(
       child: SizedBox(
-        width: 25.0,
-        height: 25.0,
-        child: GetPlatform.isIOS
-            ? Theme(
-                data: ThemeData(
-                  cupertinoOverrideTheme: CupertinoThemeData(
-                    brightness: Get.isPlatformDarkMode
-                        ? Brightness.light
-                        : Brightness.dark,
-                  ),
-                ),
-                child: const CupertinoActivityIndicator(
-                  radius: 14.0,
-                ),
+        width: size,
+        height: size,
+        child: Platform.isIOS
+            ? const CupertinoActivityIndicator(
+                color: Colors.blue,
               )
-            : CircularProgressIndicator(
-                color: color,
+            : const CircularProgressIndicator(
                 strokeWidth: 2.0,
+                color: Colors.blue,
               ),
       ),
     );

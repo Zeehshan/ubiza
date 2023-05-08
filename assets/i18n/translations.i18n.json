@@ -1,0 +1,62 @@
+{
+  "BUTTON": {
+    "LOG_IN": "Log In",
+    "SIGN_UP": "Sign Up",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "CONITNUE_TO_APP": "Continue to app",
+    "SKIP": "Skip"
+  },
+  "LABEL": {
+    "EMAIL_ID": "Email ID",
+    "PASSWORD": "Password",
+    "OR_LOGIN_WITH": "Or Login with",
+    "OR_SIGN_UP_WITH": "Or Signup with",
+    "GET_HELP": "Get Help",
+    "TERMS_OF_SERVICE": "Terms Of Service",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE_NUMBER": "Phone number",
+    "ZIP_CODE": "Zip Code"
+  },
+  "HINT": {
+    "PASSWORD": "Enter 8 character password which includes a combination of a capital letter, special characters.",
+    "EMAIL": "Enter your email"
+  },
+  "ON_BOARDING_SCREEN": {
+    "PAGE_ONE": {
+      "TITLE": "Connect with\nyour Community.",
+      "SUB_TITLE": "Share events and community gathering\nto notify the community!"
+    },
+    "PAGE_TWO": {
+      "TITLE": "Find quality Halal\nproducts.",
+      "SUB_TITLE": "Shop from islamic owned businesses\nnear you."
+    },
+    "PAGE_THREE": {
+      "TITLE": "Share your best\nmoments.",
+      "SUB_TITLE": "Share beautiful moments along with\nreminders!"
+    }
+  },
+  "AUTHENTICATION_SCREEN": {
+    "TITLE": "Join Islamly",
+    "SUB_TITLE": "Log in or create an account to start\nwatching beneficial reminders!"
+  },
+  "LOGIN_SCREEN": {
+    "TITLE": "Login",
+    "SUB_TITLE": "Lorem ipsum dolor sit amet consectetur.\nMetus eros interdum dignissim diam.",
+    "SIGN_IN_TROUBLE": "Forgot Email or trouble Signing in?"
+  },
+  "SIGN_UP_SCREEN": {
+    "SUB_TITLE": "Lorem ipsum dolor sit amet consectetur. Metus eros interdum dignissim diam. "
+  },
+  "CONGRATULATION_SCREEN": {
+    "TITLE": "Congratulations!!",
+    "SUB_TITLE": "Lorem ipsum dolor sit amet consectetur. Metus eros interdum dignissim diam. "
+  },
+  "LEGAL": {
+    "AUTHENTICATION": {
+      "TEXT_ONE": "By continuing, you agree to our ",
+      "TEXT_TWO": "and confirm that you have read our"
+    }
+  }
+}

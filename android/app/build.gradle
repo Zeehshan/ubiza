@@ -45,7 +45,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        // applicationId "com.example.ubiza"
+        // applicationId "com.example.islamicly"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion 21
@@ -62,20 +62,19 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-     flavorDimensions "app"
-
+      flavorDimensions "app"
      productFlavors {
          development {
              dimension "app"
-             applicationId "com.ubiza.mobile.development"
+             applicationId "com.islamic.ly.development"
              versionNameSuffix "-development"
          }
 
          production {
              dimension "app"
-             applicationId "com.ubiza.mobile.production"
+             applicationId "com.islamicly.app"
          }
-     }    
+     }  
 }
 
 flutter {
@@ -85,3 +84,6 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
+
+// eq4Nmh53TPFAuNiGisED0dcNDGU=

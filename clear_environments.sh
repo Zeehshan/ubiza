@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #########################
-# UBIZA
+# ISLAMICLY
 # Clear temporary data, update plugins
 #
 # Requirements (packages): bash, fluttersdk
-# Run (command line): cd <HYYYP_ROOT_DIR> && ./clear_environments.sh
+# Run (command line): cd <ISLAMICLY_ROOT_DIR> && ./clear_environments.sh
 # NOTE: script is tested using mac
 #########################
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ubiza Dev</string>
-    <string name="facebook_app_id">408116984759947</string>
-    <string name="facebook_client_token">3cd2d2bebdcb06e40f1612c10466e2b8</string>
+    <string name="app_name">Islamic.ly Dev</string>
+    <string name="facebook_app_id">1135341077494179</string>
+    <string name="facebook_client_token">ec6bffbcea1fdb3d2c8ce9307396ac0e</string>
 </resources>

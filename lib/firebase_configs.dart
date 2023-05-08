@@ -16,8 +16,8 @@ class DefaultFirebaseOptions {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      // case TargetPlatform.iOS:
-      // return ios;
+      case TargetPlatform.iOS:
+        return ios;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -36,15 +36,15 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBCR_-9D53JwpdsSDnCyoxFI2ABaZltEFc',
-    appId: '1:87880152312:android:929be11b1c4c69fa94370d',
-    messagingSenderId: '87880152312',
-    projectId: 'ubiza-dev',
+    apiKey: 'AIzaSyDZURkPEKsv2ReIeye8LNxTD1WuLJqSSz8',
+    appId: '1:395743051394:android:fa36408f3159bb00fb3e9b',
+    messagingSenderId: '395743051394',
+    projectId: 'crucial-oarlock-380904',
   );
-  // static const FirebaseOptions ios = FirebaseOptions(
-  //   apiKey: 'AIzaSyBlObP3iLImJ5kwl9BjeLxQzs3NUJpsSWo',
-  //   appId: '1:710469124995:ios:b0a6eb5c25065be285acb6',
-  //   messagingSenderId: '710469124995',
-  //   projectId: 'ubiza-dev',
-  // );
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDZURkPEKsv2ReIeye8LNxTD1WuLJqSSz8',
+    appId: '1:395743051394:ios:5da1e10ba29cbe68fb3e9b',
+    messagingSenderId: '395743051394',
+    projectId: 'crucial-oarlock-380904',
+  );
 }

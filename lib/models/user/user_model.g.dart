@@ -7,46 +7,38 @@ part of 'user_model.dart';
 // **************************************************************************
 
 _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
-      email: json['email'] as String,
-      fName: json['f_name'] as String? ?? '',
-      lName: json['l_name'] as String? ?? '',
-      dob: json['dob'] as String? ?? '',
-      college: json['college'] as String? ?? '',
-      country: json['country'] as String? ?? '',
-      collegeLogo: json['college_logo'] as String? ?? '',
-      gender: $enumDecodeNullable(_$GenderEnumMap, json['gender']) ??
-          Gender.unknown,
-      documentId: json['document_id'] == null
+      id: json['id'] as String,
+      active: json['active'] as bool?,
+      appIdentifier: json['appIdentifier'] as String?,
+      city: json['city'] as String?,
+      country: json['country'] as String?,
+      email: json['email'] as String?,
+      firstName: json['firstName'] as String?,
+      lastName: json['lastName'] as String?,
+      interests: (json['interests'] as List<dynamic>)
+          .map(InterestModel.fromJson)
+          .toList(),
+      phoneNumber: json['phoneNumber'] as String?,
+      profilePictureURL: json['profilePictureURL'] as String?,
+      settings: json['settings'] == null
           ? null
-          : DocumentModel.fromJson(json['document_id']),
-      collegeId: json['college_id'] == null
-          ? null
-          : DocumentModel.fromJson(json['college_id']),
-      selfie: json['selfie'] == null
-          ? null
-          : DocumentModel.fromJson(json['selfie']),
-      termsAndConditionsAccepted:
-          json['terms_and_conditions_accepted'] as bool? ?? false,
+          : SettingModel.fromJson(json['settings']),
+      state: json['state'] as String?,
     );
 
 Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
     <String, dynamic>{
-      'email': instance.email,
-      'f_name': instance.fName,
-      'l_name': instance.lName,
-      'dob': instance.dob,
-      'college': instance.college,
+      'id': instance.id,
+      'active': instance.active,
+      'appIdentifier': instance.appIdentifier,
+      'city': instance.city,
       'country': instance.country,
-      'college_logo': instance.collegeLogo,
-      'gender': _$GenderEnumMap[instance.gender]!,
-      'document_id': instance.documentId,
-      'college_id': instance.collegeId,
-      'selfie': instance.selfie,
-      'terms_and_conditions_accepted': instance.termsAndConditionsAccepted,
+      'email': instance.email,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'interests': instance.interests,
+      'phoneNumber': instance.phoneNumber,
+      'profilePictureURL': instance.profilePictureURL,
+      'settings': instance.settings,
+      'state': instance.state,
     };
-
-const _$GenderEnumMap = {
-  Gender.male: 0,
-  Gender.female: 1,
-  Gender.unknown: 'unknown',
-};

@@ -1,15 +1,3 @@
-import 'package:json_annotation/json_annotation.dart';
+enum SocialLoginType { gmail, apple, facbook, google }
 
-@JsonEnum()
-enum Gender {
-  @JsonValue(0)
-  male,
-  @JsonValue(1)
-  female,
-  @JsonValue(2)
-  other,
-  @JsonKey.nullForUndefinedEnumValue
-  unknown
-}
-
-enum DocumentOptionType { camera, gallery }
+enum AuthScreenType { login, signup }

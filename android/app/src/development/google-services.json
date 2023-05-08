@@ -1,35 +1,80 @@
 {
   "project_info": {
-    "project_number": "87880152312",
-    "firebase_url": "https://ubiza-dev-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "ubiza-dev",
-    "storage_bucket": "ubiza-dev.appspot.com"
+    "project_number": "395743051394",
+    "firebase_url": "https://crucial-oarlock-380904-default-rtdb.firebaseio.com",
+    "project_id": "crucial-oarlock-380904",
+    "storage_bucket": "crucial-oarlock-380904.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:87880152312:android:929be11b1c4c69fa94370d",
+        "mobilesdk_app_id": "1:395743051394:android:fa36408f3159bb00fb3e9b",
         "android_client_info": {
-          "package_name": "com.ubiza.mobile.development"
+          "package_name": "com.islamicly.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "87880152312-c25hid4n4v9ge1av9ftd0fblt3jds4uq.apps.googleusercontent.com",
+          "client_id": "395743051394-dti0kmfpj8tnv0c20otjafsnbec0gko9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB0K1dv16L4YPK6EcyFiXJA75SOsIdUK-Y"
+          "current_key": "AIzaSyDZURkPEKsv2ReIeye8LNxTD1WuLJqSSz8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "87880152312-c25hid4n4v9ge1av9ftd0fblt3jds4uq.apps.googleusercontent.com",
+              "client_id": "395743051394-dti0kmfpj8tnv0c20otjafsnbec0gko9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "395743051394-d46u95kt6ek4572pk02cnnjuclo3otuh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.islamic.ly.app",
+                "app_store_id": "1628595861"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395743051394:android:1ee910a1b9cb57d4fb3e9b",
+        "android_client_info": {
+          "package_name": "com.islamly.mobile.development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395743051394-dti0kmfpj8tnv0c20otjafsnbec0gko9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZURkPEKsv2ReIeye8LNxTD1WuLJqSSz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395743051394-dti0kmfpj8tnv0c20otjafsnbec0gko9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "395743051394-d46u95kt6ek4572pk02cnnjuclo3otuh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.islamic.ly.app",
+                "app_store_id": "1628595861"
+              }
             }
           ]
         }
